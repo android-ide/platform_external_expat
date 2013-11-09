@@ -23,7 +23,6 @@ common_COPY_HEADERS := \
 	lib/expat.h \
 	lib/expat_external.h
 
-
 # For the device
 # =====================================================
 
@@ -31,8 +30,9 @@ common_COPY_HEADERS := \
 include $(CLEAR_VARS)
 
 ifeq ($(TARGET_ARCH),arm)
-LOCAL_NDK_VERSION := 4
-LOCAL_SDK_VERSION := 8
+    LOCAL_SDK_VERSION := 8
+else
+    LOCAL_SDK_VERSION := 9
 endif
 
 LOCAL_SRC_FILES := $(common_SRC_FILES)
