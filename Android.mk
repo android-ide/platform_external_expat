@@ -18,6 +18,10 @@ common_CFLAGS := \
 common_C_INCLUDES += \
 	$(LOCAL_PATH)/lib
 
+
+ifndef AIDE_BUILD
+
+
 # For the host
 # =====================================================
 
@@ -54,6 +58,9 @@ LOCAL_MULTILIB := both
 include $(BUILD_HOST_SHARED_LIBRARY)
 
 
+endif # AIDE_BUILD
+
+
 # For the device
 # =====================================================
 
@@ -77,6 +84,10 @@ LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/lib
 
 include $(BUILD_STATIC_LIBRARY)
 
+
+ifndef AIDE_BUILD
+
+
 # Device shared library
 include $(CLEAR_VARS)
 
@@ -97,3 +108,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/lib
 
 include $(BUILD_SHARED_LIBRARY)
+
+
+endif # AIDE_BUILD
