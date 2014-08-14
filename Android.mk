@@ -23,6 +23,10 @@ common_COPY_HEADERS := \
 	lib/expat.h \
 	lib/expat_external.h
 
+
+ifndef AIDE_BUILD
+
+
 # For the host
 # =====================================================
 
@@ -63,6 +67,9 @@ LOCAL_MULTILIB := both
 include $(BUILD_HOST_SHARED_LIBRARY)
 
 
+endif # AIDE_BUILD
+
+
 # For the device
 # =====================================================
 
@@ -85,6 +92,10 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_STATIC_LIBRARY)
 
+
+ifndef AIDE_BUILD
+
+
 # Device shared library
 include $(CLEAR_VARS)
 
@@ -106,3 +117,6 @@ LOCAL_COPY_HEADERS_TO := $(common_COPY_HEADERS_TO)
 LOCAL_COPY_HEADERS := $(common_COPY_HEADERS)
 
 include $(BUILD_SHARED_LIBRARY)
+
+
+endif # AIDE_BUILD
